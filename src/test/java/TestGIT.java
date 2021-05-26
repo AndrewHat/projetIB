@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -51,6 +52,12 @@ public class TestGIT {
         Assert.assertTrue(accueilButton.isDisplayed(), "Le button accueil n'est pas visible");
     }
 
+    @Test
+    public void testLuis() {
+        By barreRecherche = By.id("twotabsearchtextbox");
+        driver.findElement(barreRecherche).sendKeys("Playstation 5" + Keys.ENTER);
+    }
+  
     @Test
     public void testXbox() {
         By meilleuresVentes = By.cssSelector("#nav-xshop > a");
