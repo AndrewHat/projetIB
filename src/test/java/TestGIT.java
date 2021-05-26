@@ -57,4 +57,10 @@ public class TestGIT {
         By barreRecherche = By.id("twotabsearchtextbox");
         driver.findElement(barreRecherche).sendKeys("Playstation 5" + Keys.ENTER);
     }
+  
+    @Test
+    public void testXbox() {
+        By meilleuresVentes = By.cssSelector("#nav-xshop > a");
+        driver.findElement(meilleuresVentes).click();
+    }
 }
