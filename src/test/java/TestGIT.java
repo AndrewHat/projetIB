@@ -50,4 +50,10 @@ public class TestGIT {
         WebElement accueilButton = driver.findElement(By.id("pv-nav-home"));
         Assert.assertTrue(accueilButton.isDisplayed(), "Le button accueil n'est pas visible");
     }
+
+    @Test
+    public void testXbox() {
+        By meilleuresVentes = By.cssSelector("#nav-xshop > a");
+        driver.findElement(meilleuresVentes).click();
+    }
 }
