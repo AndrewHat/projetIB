@@ -34,13 +34,14 @@ public class TestGIT {
 
         // Act
         HomePage amazonHomePage = new HomePage(driver);
-        amazonHomePage.openAllCategories();
-        amazonHomePage.openAmazonPrimeVideo();
-        amazonHomePage.openFilms();
+        boolean isHomeButtonDisplayed = amazonHomePage
+                .openAllCategories()
+                .openAmazonPrimeVideo()
+                .openFilms()
+                .isHomeButtonDisplayed();
 
         // Asserts
-        PrimeVideoHomePage primeVideoHomePage = new PrimeVideoHomePage(driver);
-        Assert.assertTrue(primeVideoHomePage.isHomeButtonDisplayed(), "Le button accueil n'est pas visible");
+        Assert.assertTrue(isHomeButtonDisplayed, "Le button accueil n'est pas visible");
     }
 
     @Test
