@@ -32,23 +32,14 @@ public class TestGIT {
         // Arrange
 
         // Act
-        By hamburgerButtonSelector = By.id("nav-hamburger-menu");
-        driver.findElement(hamburgerButtonSelector).click();
-
-        By amazonPrimeVideoSelector = By.cssSelector(".hmenu-item[data-menu-id='2']");
-
-        WebDriverWait wait = new WebDriverWait(driver, 2);
-        wait.until(ExpectedConditions.elementToBeClickable(amazonPrimeVideoSelector));
-        driver.findElement(amazonPrimeVideoSelector).click();
-
-        By filmsButtonSelector = By.cssSelector(".hmenu-visible[data-parent-menu-id='1'] li:nth-of-type(4)");
-        wait.until(ExpectedConditions.elementToBeClickable(filmsButtonSelector));
-        driver.findElement(filmsButtonSelector).click();
+        HomePage amazonHomePage = new HomePage(driver);
+        amazonHomePage.openAllCategories();
+        amazonHomePage.openAmazonPrimeVideo();
+        amazonHomePage.openFilms();
 
         // Asserts
-
-        WebElement accueilButton = driver.findElement(By.id("pv-nav-home"));
-        Assert.assertTrue(accueilButton.isDisplayed(), "Le button accueil n'est pas visible");
+        PrimeVideoHomePage primeVideoHomePage = new PrimeVideoHomePage(driver);
+        Assert.assertTrue(primeVideoHomePage.isHomeButtonDisplayed(), "Le button accueil n'est pas visible");
     }
 
     @Test
