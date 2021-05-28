@@ -47,4 +47,14 @@ public class HomePage {
         header.search(keyword);
         return new SearchResultPage(driver);
     }
+
+    public void openAccountAndListMenu() {
+        header.openAccountAndListMenu();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
