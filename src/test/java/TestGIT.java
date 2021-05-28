@@ -1,14 +1,12 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageObjects.HomePage;
 
 public class TestGIT {
     WebDriver driver;
@@ -42,6 +40,19 @@ public class TestGIT {
 
         // Asserts
         Assert.assertTrue(isHomeButtonDisplayed, "Le button accueil n'est pas visible");
+    }
+
+    @Test
+    public void testComponent() {
+        HomePage homePage = new HomePage(driver);
+        homePage.search("Nintendo Switch")
+                .openProduct(2)
+                .search("Playstation 5")
+                .search("Xbox s")
+                .search("Mac")
+                .search("iPhone")
+                .openProduct(0)
+                .search("Android");
     }
 
     @Test

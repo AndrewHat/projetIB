@@ -1,9 +1,16 @@
+package pageObjects;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import pageComponents.Header;
 
 public class SearchResultPage {
 
     WebDriver driver;
+
+    Header header;
+    By headerSelector = By.tagName("header");
 
     private static final int MAX_ITEMS = 50;
 
@@ -11,6 +18,9 @@ public class SearchResultPage {
 
     public SearchResultPage(WebDriver driver) {
         this.driver = driver;
+
+        WebElement headerContainer = driver.findElement(headerSelector);
+        header = new Header(headerContainer);
     }
 
     public ProductPage openProduct(int index) {
@@ -21,5 +31,10 @@ public class SearchResultPage {
 
         driver.findElements(productResultSelector).get(index).click();
         return new ProductPage(driver);
+    }
+
+    public SearchResultPage search(String keyword) {
+        header.search(keyword);
+        return new SearchResultPage(driver);
     }
 }
