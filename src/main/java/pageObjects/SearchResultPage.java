@@ -24,6 +24,7 @@ public class SearchResultPage {
     }
 
     public ProductPage openProduct(int index) {
+        System.out.println("Open product number [" + index + "]");
 
         if(index < 0 || index >= MAX_ITEMS) {
             throw new IndexOutOfBoundsException("The index must be between 0 and " + MAX_ITEMS);
@@ -34,6 +35,7 @@ public class SearchResultPage {
     }
 
     public SearchResultPage search(String keyword) {
+        System.out.println("Search keyword [" + keyword + "]");
         header.search(keyword);
         return new SearchResultPage(driver);
     }

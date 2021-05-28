@@ -44,7 +44,11 @@ public class TestGIT {
 
     @Test
     public void testComponent() {
+        System.out.println("Starting test");
         HomePage homePage = new HomePage(driver);
+
+        System.out.println("Home page is loaded");
+
         homePage.search("Nintendo Switch")
                 .openProduct(2)
                 .search("Playstation 5")
@@ -53,6 +57,8 @@ public class TestGIT {
                 .search("iPhone")
                 .openProduct(0)
                 .search("Android");
+
+        System.out.println("Test is finished");
     }
 
     @Test
