@@ -27,6 +27,7 @@ public class ProductPage {
     }
 
     public SearchResultPage search(String keyword) {
+        System.out.println("Search keyword [" + keyword + "]");
         header.search(keyword);
         return new SearchResultPage(driver);
     }
