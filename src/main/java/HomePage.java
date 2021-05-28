@@ -24,15 +24,13 @@ public class HomePage {
 
     public HomePage openAmazonPrimeVideo() {
         WebDriverWait wait = new WebDriverWait(driver, 2);
-        wait.until(ExpectedConditions.elementToBeClickable(amazonPrimeVideoSelector));
-        driver.findElement(amazonPrimeVideoSelector).click();
+        wait.until(ExpectedConditions.elementToBeClickable(amazonPrimeVideoSelector)).click();
         return this;
     }
 
     public PrimeVideoHomePage openFilms() {
         WebDriverWait wait = new WebDriverWait(driver, 2);
-        wait.until(ExpectedConditions.elementToBeClickable(filmsButtonSelector));
-        driver.findElement(filmsButtonSelector).click();
+        wait.until(ExpectedConditions.elementToBeClickable(filmsButtonSelector)).click();
         return new PrimeVideoHomePage(driver);
     }
 
