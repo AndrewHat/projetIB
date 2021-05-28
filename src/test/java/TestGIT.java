@@ -45,6 +45,16 @@ public class TestGIT {
     }
 
     @Test
+    public void testNintendoSwitch() {
+        String keyword = "Nintendo Switch";
+
+        HomePage homePage = new HomePage(driver);
+        String productTitle = homePage.search(keyword).openProduct(0).getProductTitle();
+
+        Assert.assertTrue(productTitle.contains(keyword), "The product title [" + productTitle + "] does not contain the keyword [" + keyword + "]");
+    }
+
+    @Test
     public void testLuis() {
         By barreRecherche = By.id("twotabsearchtextbox");
         driver.findElement(barreRecherche).sendKeys("Playstation 5" + Keys.ENTER);
