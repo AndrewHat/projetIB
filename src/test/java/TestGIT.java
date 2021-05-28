@@ -82,4 +82,10 @@ public class TestGIT {
         By meilleuresVentes = By.cssSelector("#nav-xshop > a");
         driver.findElement(meilleuresVentes).click();
     }
+
+    @Test
+    public void testHover() {
+        HomePage homePage = new HomePage(driver);
+        homePage.openAccountAndListMenu();
+    }
 }
