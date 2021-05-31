@@ -2,18 +2,37 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pageObjects.HomePage;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class TestGIT {
     WebDriver driver;
 
     @BeforeMethod
     public void ouvrirChrome() {
-        driver = new ChromeDriver();
+        var options = new ChromeOptions();
+        options.addArguments("disable-extensions");
+        options.addArguments("disable-popup-blocking");
+        options.addArguments("no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("acceptSslCerts=true");
+        options.addArguments("unexpectedAlertBehaviour=accept");
+
+        try {
+            driver = new RemoteWebDriver(new
+                    URL("http://localhost:4444/wd/hub"), options);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
         driver.get("https://www.amazon.fr/");
         driver.manage().window().maximize();
 
