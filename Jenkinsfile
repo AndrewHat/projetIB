@@ -9,13 +9,13 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh './gradlew clean test'
+                sh './gradlew clean -x test'
             }
         }
     }
     post { 
         always { 
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/reports/tests/test/', reportFiles: 'index.html', reportName: 'Test Report', reportTitles: ''])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: false, reportDir: 'build/reports/tests/test/', reportFiles: 'index.html', reportName: 'Test Report', reportTitles: ''])
         }
     }
 }
